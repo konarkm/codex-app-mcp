@@ -22,6 +22,12 @@ a `codex app-server` child process that it drives over JSON-RPC.
 - [Codex CLI](https://github.com/openai/codex) on your `PATH`, logged in.
   Built against `codex-cli` 0.136.0 and verified through 0.142.x.
 
+The Codex **desktop app does not need to be running** (or installed):
+`codex app-server` is a headless subcommand of the CLI, spawned as a child
+process on the first tool call. The app, the CLI, and this server are all just
+frontends over the same on-disk thread store (`~/.codex/sessions`), so threads
+created here show up there and vice versa.
+
 ## Registration
 
 Register it with Claude Code:
